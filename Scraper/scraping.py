@@ -12,7 +12,7 @@ class Scraper:
     def scrape(self, url):
         s = requests.session()
         page = s.get(url, headers=Scraper.headers)
-        soup = BeautifulSoup(page.text, "lxml")
+        soup = BeautifulSoup(page.content, "html.parser")
         if 'www.myntra.com' in url:
             price = json.loads(soup.find_all('script')[1].string)[
                 'offers']['price']
