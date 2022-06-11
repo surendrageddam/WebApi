@@ -6,7 +6,7 @@ app = FastAPI()
 
 
 @app.get("/")
-async def run(url: str):
+async def home():
     return {"status": 200}
 
 @app.get("/get")
