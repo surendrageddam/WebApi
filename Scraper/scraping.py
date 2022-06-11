@@ -14,7 +14,7 @@ class Scraper:
         page = s.get(url, headers=Scraper.headers)
         soup = BeautifulSoup(page.content, "html.parser")
         if 'www.myntra.com' in url:
-            price = json.loads(soup.find_all('script')[1].string)[
+            price = json.loads(soup.find_all('script')[0].string)[
                 'offers']['price']
             return int(price)
         elif 'www.ajio.com' in url:
